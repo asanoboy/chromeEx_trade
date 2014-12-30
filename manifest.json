@@ -1,0 +1,32 @@
+{
+    "manifest_version": 2,
+    "name": "Chrome Extension For Trade",
+    "description": "",
+    "version": "1.0",
+    "permissions": [
+        "tabs"
+    ],
+    "icons": { 
+        "16": "image/16px-Japanese_Hiragana_kyokashotai_A.svg.png",
+        "48": "image/48px-Japanese_Hiragana_kyokashotai_A.svg.png",
+        "128": "image/128px-Japanese_Hiragana_kyokashotai_A.svg.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "19": "image/19px-Japanese_Hiragana_kyokashotai_A.svg.png",
+            "38": "image/38px-Japanese_Hiragana_kyokashotai_A.svg.png"
+        },
+        "default_popup": "popup/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://fx.dmm.com/*"],
+            "js": ["js/chrome-wrapper.js", "content/dmm/content.js"]
+        }
+    ],
+    "background": {
+        "page": "background/background.html",
+        "persistent": true
+    },
+    "options_page": "options/options.html"
+}
