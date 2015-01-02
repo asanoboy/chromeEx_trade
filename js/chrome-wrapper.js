@@ -45,6 +45,10 @@
                     receiveResponse(res, resolve, reject);
                 });
             },
+            close: function(callback){
+                callback || (callback = function(){});
+                chrome.tabs.remove(tab.id, callback);
+            },
             onUpdated: function(info) {}, // Should be overrided.
         };
         createdTabHandlers.push(handler);
@@ -77,6 +81,10 @@
     var hasInitialized = false;
     global.chromeWrapper = {
         getPopupHandler: function(){
+            hasInitialized = true;
+            return popupHandler;
+        },
+        getOptionsHandler: function(){
             hasInitialized = true;
             return popupHandler;
         },
