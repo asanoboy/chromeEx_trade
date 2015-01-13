@@ -76,7 +76,7 @@
     })();
 
 
-    global.Ex.backgroud = (function(){
+    global.Ex.background = (function(){
         var i=0;
         return {
             actions: {
